@@ -1,0 +1,97 @@
+.menu-screen {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .menu-screen h1 {
+    font-size: 5em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #ffc7c2;
+  }
+
+  .menu-screen p {
+    font-size: 1.2em;
+    color: #ffc7c2;
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
+
+  .language-button {
+    display: inline-flex; /* Use inline-flex */
+    justify-content: center;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+  }
+
+  .english {
+    background-color: #274e95;
+  }
+
+  .japan {
+    background-color: #d3cece;
+  }
+
+  .portuguese {
+    background-color: #04812d;
+  }
+  
+  .progress-section h2 {
+    font-size: 2em;
+    margin-top: 120px;
+    color: #ffc7c2;
+  }
+
+  .suggestions-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #ffc7c2;
+  }
+
+  .menu-screen .language-button img {
+    width: 50px; /* Increase width */
+    height: 50px; /* Increase height */
+    /* border-radius: 50%; */
+    /* border: 1px solid #ccc; */
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .menu-screen img {
+    width: 50px; /* Increase width */
+    height: 50px; /* Increase height */
+    /* border-radius: 50%; */
+    /* border: 1px solid #ccc; */
+    /* background-color: white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+    .welcome-page-background {
+    /* background-image: url('/public/backgroud.png'); */
+    background: linear-gradient(#4e1587, #f19261);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    /* Add other background properties as needed */
+  }

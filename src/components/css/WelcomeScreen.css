@@ -1,0 +1,44 @@
+.welcome-screen {
+    text-align: center;
+    padding: 20px;
+    color: #ffc7c2;
+  }
+  
+  .welcome-screen h1 {
+    font-size: 5em;
+    margin-bottom: 10px;
+    margin-top: 80px;
+  }
+  
+  .welcome-screen p {
+    font-size: 1.2em;
+    color: #ffc7c2;
+    margin-bottom: 20px;
+    margin-top: 50px;
+  }
+  
+  .welcome-screen button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background-color: #ffc7c2;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 250px;
+  }
+  
+  .welcome-screen button:hover {
+    background-color: #fa9e96;
+  }
+
+  .welcome-page-background {
+    /* background-image: url('/public/backgroud.png'); */
+    background: linear-gradient(#4e1587, #f19261);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    /* Add other background properties as needed */
+  }
+  

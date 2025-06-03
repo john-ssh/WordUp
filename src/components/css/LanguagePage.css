@@ -1,0 +1,187 @@
+.language-page {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.3em;
+  }
+  
+  .language-page h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #ffc7c2; /* Updated color */
+  }
+  
+  .instruction-section {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  .instruction-section p {
+    font-size: 1em;
+    color: #ffc7c2; /* Updated color */
+    margin-bottom: 10px;
+  }
+  
+  .word-input-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .word-input-area input {
+    padding: 10px;
+    width: 19em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  
+  .word-input-area button {
+    padding: 10px 20px;
+    background-color: #e58964;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .suggestion-section h2 {
+    color: #ffc7c2; /* Updated color */
+    margin-bottom: 15px;
+  }
+  
+  .word-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .word-box {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #f8dfdc; /* Updated color */
+    font-size: 1em;
+  }
+
+  .new-words-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .new-word-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+
+.progress-bar-container {
+    width: 100px; /* Adjust the width here */
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 5px;
+    width: 50%; /* Adjust the width here */
+  }
+
+.language-page h1,
+.instruction-section p,
+.suggestion-section h2,
+.word-box,
+.new-word-item {
+  font-weight: bold; /* Or 600, 700, etc. */
+}
+
+.new-words-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .new-words-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow words to wrap to new lines */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  .new-word-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px; /* Add margin for spacing */
+    color: white;
+    width: 20%; /* Adjust width to fit 4 words per row */
+    min-width: 150px; /* Minimum width for responsiveness */
+  }
+
+
+.word-box,
+.new-word-item {
+  position: relative; /* Needed for absolute positioning of tooltip */
+}
+
+.word-box::after,
+.new-word-item::after {
+  content: attr(data-meaning);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  bottom: 120%; /* Position above the word */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.word-box:hover::after,
+.new-word-item:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.remove-button{
+  padding: 0.5em .8em;
+  border: 0px;
+  color: #fff;
+  background-color: #ff675c;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.divReturn {
+  display: flex;
+  
+}
+
+.returnButton {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+
+.returnButton:hover{
+  color: #ffc7c2;
+}
