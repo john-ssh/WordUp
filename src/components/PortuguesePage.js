@@ -12,7 +12,7 @@ import {
 } from "../database/userWords";
 
 import { collection, query, onSnapshot } from "firebase/firestore";
-import { db } from "../database/firebase";
+import { auth, db } from "../database/firebase";
 import { useNavigate } from "react-router-dom";
 
 function PortuguesePage({ language }) {
@@ -37,7 +37,21 @@ function PortuguesePage({ language }) {
 
    useEffect(() => {
       setLoading(true);
-      const wordsCollectionRef = collection(db, "languages", language, "words");
+      const user = auth.currentUser;
+      if (!user) {
+         console.error("User not authenticated");
+         setLoading(false);
+         return;
+      }
+      const wordsCollectionRef = collection(
+         db,
+         "users",
+         user.uid,
+         "languages",
+         language,
+         "words"
+      );
+      
       const q = query(wordsCollectionRef);
 
       const unsubscribe = onSnapshot(

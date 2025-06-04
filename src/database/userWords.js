@@ -1,6 +1,6 @@
 // src/data/userWords.js
 
-import { db } from "./firebase"; // Path to your firebase.js file
+import { db, auth } from "./firebase"; // Path to your firebase.js file
 import { getDoc } from "firebase/firestore";
 
 import {
@@ -19,7 +19,10 @@ import {
 // Helper to get a reference to the words collection for a specific language
 // Data structure will be: /languages/{languageId}/words/{wordId}
 const getWordsCollectionRef = (language) => {
-   return collection(db, "languages", language, "words");
+   const user = auth.currentUser;
+   if (!user) throw new Error("User not authenticated");
+
+   return collection(db, "users", user.uid, "languages", language, "words");
 };
 
 export const getUserWords = async (language) => {
@@ -65,7 +68,7 @@ export const addUserWord = async (word, meaning, language) => {
 
 export const updateWordProgress = async (wordId, language) => {
    try {
-      const wordDocRef = doc(db, "languages", language, "words", wordId);
+      const wordDocRef = doc(getWordsCollectionRef(language), wordId);
       const docSnap = await getDoc(wordDocRef);
 
       if (!docSnap.exists()) {
@@ -128,7 +131,7 @@ export const resetProgress = async (language) => {
 
 export const removeWord = async (wordId, language) => {
    try {
-      const wordDocRef = doc(db, "languages", language, "words", wordId);
+      const wordDocRef = doc(getWordsCollectionRef(language), wordId);
       await deleteDoc(wordDocRef);
       return true;
    } catch (error) {

@@ -14,7 +14,9 @@ import {
 
 // Import Firestore functions for real-time listener
 import { collection, query, onSnapshot } from "firebase/firestore";
-import { db } from "../database/firebase"; // Correct path to firebase.js
+import { auth, db } from "../database/firebase"; // Correct path to firebase.js
+import { onAuthStateChanged } from "firebase/auth";
+
 
 function EnglishPage({ language }) {
    // Receives 'language' prop from router
@@ -39,7 +41,21 @@ function EnglishPage({ language }) {
    useEffect(() => {
       setLoading(true); // Indicate loading
       // Set up a real-time listener for words specific to this language
-      const wordsCollectionRef = collection(db, "languages", language, "words");
+      const user = auth.currentUser;
+      if (!user) {
+         console.error("User not authenticated");
+         setLoading(false);
+         return;
+      }
+      const wordsCollectionRef = collection(
+         db,
+         "users",
+         user.uid,
+         "languages",
+         language,
+         "words"
+      );
+      
       const q = query(wordsCollectionRef);
 
       const unsubscribe = onSnapshot(
